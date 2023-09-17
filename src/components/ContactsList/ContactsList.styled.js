@@ -1,16 +1,44 @@
 import styled from 'styled-components';
 
+export const Table = styled.table`
+  display: flex;
+  flex-direction: column;
+`;
+export const TabletHead = styled.thead`
+  margin-bottom: 16px;
+  & tr {
+    display: flex;
+    padding: 3px;
+    gap: 15px;
+    & th:nth-child(1) {
+      width: 200px;
+      word-wrap: break-word;
+    }
+    & th:nth-child(2) {
+      width: 150px;
+      word-wrap: break-word;
+    }
+    & th:not(:last-child) {
+      border-bottom: 3px solid blue;
+    }
+  }
+`;
+
 export const TableBody = styled.tbody`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  text-align: center;
 `;
 
 export const ItemRow = styled.tr`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  padding: 3px;
+  & td {
+    padding-bottom: 5px;
+  }
   & td:nth-child(1) {
     width: 200px;
     word-wrap: break-word;
@@ -35,13 +63,7 @@ export const ItemRow = styled.tr`
       }
     }
   }
-  border-bottom: 3px dashed #8080ff;
-  padding: 3px;
+  & td:not(:last-child) {
+    border-bottom: 3px dashed #8080ff;
+  }
 `;
-export const ItemList = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  width: 250px;
-  padding: 5px;
-`;
-export const NameText = styled.p``;

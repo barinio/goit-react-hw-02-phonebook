@@ -5,6 +5,7 @@ import { Section } from './Section/Section';
 import { FormContacts } from './FormContacts/FormContacts';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
+import { Notification } from './Notification/Notification';
 
 export class App extends Component {
   state = {
@@ -58,8 +59,17 @@ export class App extends Component {
           <FormContacts onSubmitForm={onSubmitForm} />
         </Section>
         <Section title={'Contacts'}>
-          <Filter filter={this.state.filter} onChangeFilter={onChangeFilter} />
-          <ContactsList contacts={filteredList()} onDelete={onDelete} />
+          {this.state.contacts.length ? (
+            <>
+              <Filter
+                filter={this.state.filter}
+                onChangeFilter={onChangeFilter}
+              />
+              <ContactsList contacts={filteredList()} onDelete={onDelete} />
+            </>
+          ) : (
+            <Notification message={'There is no contacts!'} />
+          )}
         </Section>
       </>
     );
