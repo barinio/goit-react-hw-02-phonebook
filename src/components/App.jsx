@@ -32,9 +32,8 @@ export class App extends Component {
     }));
   };
 
-  onChangeFilter = ({ target }) => {
+  onChangeFilter = ({ target }) =>
     this.setState({ filter: target.value.toLowerCase() });
-  };
 
   filteredList = () => {
     const { filter, contacts } = this.state;
@@ -43,28 +42,23 @@ export class App extends Component {
     );
   };
 
-  onDelete = id => {
-    this.setState(prevState => {
-      return {
-        contacts: prevState.contacts.filter(item => item.id !== id),
-      };
-    });
-  };
+  onDelete = id =>
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(item => item.id !== id),
+    }));
 
   render() {
     const { onChangeFilter, onSubmitForm, filteredList, onDelete } = this;
+    const { contacts, filter } = this.state;
     return (
       <>
         <Section title={'Phonebook'}>
           <FormContacts onSubmitForm={onSubmitForm} />
         </Section>
         <Section title={'Contacts'}>
-          {this.state.contacts.length ? (
+          {contacts.length ? (
             <>
-              <Filter
-                filter={this.state.filter}
-                onChangeFilter={onChangeFilter}
-              />
+              <Filter filter={filter} onChangeFilter={onChangeFilter} />
               <ContactsList contacts={filteredList()} onDelete={onDelete} />
             </>
           ) : (
