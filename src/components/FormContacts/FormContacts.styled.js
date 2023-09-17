@@ -34,12 +34,12 @@ export const FormButton = styled.button`
   padding: 15px;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #0d52bd;
+  background-color: #8080ff;
   color: white;
   font-weight: 600;
   box-shadow: rgba(0, 50, 255, 0.5) 0px 1px 8px;
 
   &:is(:focus, :hover) {
-    background-color: #008ecc;
+    background-color: #6a5acd;
   }
 `;
